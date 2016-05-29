@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jeff Weiner | Linkedin</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mycss.css">
+
+</head>
+<body ng-app="LinkedInApp"  ng-class="{'modal-open': visited}">
+<nav class="navbar navbar-inverse" id="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="padding-left: 50px;" href="#"><i class="fa fa-linkedin-square"></i> LinkedIn</a>
+        </div>
+        <div class="nav navbar-nav navbar-right nav-account">
+            <div class="account-name">Hello, {{ displayName }}
+                <button type="button" class="btn btn-success btn-xs" ng-click="logout()">Logout</button>
+            </div>
+
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+    </div>
+</nav>
+<div class="wrapper">
+
+</div>
+
+<script src="./js/jquery-1.12.3.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
+<script src="./js/angular-sanitize.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
