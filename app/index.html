@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/mycss.css">
 
 </head>
-<body ng-app="LinkedInApp" ng-controller="profile" ng-class="{'modal-open': visited}">
+<body ng-app="LinkedInApp" ng-controller="profileCtrl" ng-class="{'modal-open': visited}">
 <nav class="navbar navbar-inverse" id="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -40,8 +40,7 @@
                                      title="{{profile.firstname}} {{profile.lastname}}">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" ng-click="visited = false">Close
-                                </button>
+                                <button type="button" class="btn btn-default" ng-click="visited = false">Close</button>
                             </div>
                         </div>
                     </div>
@@ -335,7 +334,7 @@
                             <h4>Top Skills</h4>
                             <div class="skill-content top-skill" ng-repeat="topSkills in profile.topSkills">
                                 <div class="btn-group btn-group-sm btn-skill" role="group" aria-label="skill">
-                                    <button type="button" class="btn btn-primary">{{topSkills.point}}</button>
+                                    <button type="button" class="btn btn-primary">{{topSkills.point < 100 ? topSkills.point : '99+'}}</button>
                                     <a id="btn-remove-top-skill" ng-click="removeTopSkill($index)"><i
                                             class="fa fa-times"></i></a>
                                     <a id="btn-edit-top-skill" data-toggle="modal" data-target="#edit-top-skill"
@@ -380,7 +379,7 @@
                             <h4>{{profile.firstname}} also knows about...</h4>
                             <div class="skill-content another-skill" ng-repeat="anotherSkills in profile.anotherSkills">
                                 <div class="btn-group btn-group-sm btn-skill" role="group" aria-label="skill">
-                                    <button type="button" class="btn btn-primary">{{anotherSkills.point}}</button>
+                                    <button type="button" class="btn btn-primary" >{{anotherSkills.point < 100 ? anotherSkills.point : '99+'}}</button>
                                     <a id="btn-remove-another-skill" ng-click="removeAnotherSkill($index)"><i
                                             class="fa fa-times"></i></a>
                                     <a id="btn-edit-another-skill" data-toggle="modal" data-target="#edit-another-skill"
@@ -658,7 +657,7 @@
 <script src="./js/jquery-1.12.3.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
-<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
 <script src="./js/angular-sanitize.js"></script>
