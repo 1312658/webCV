@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Jeff Weiner | Linkedin</title>
+    <title>Profile</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -33,13 +33,14 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Avatar</h4>
+                                <h4 class="modal-title">{{profile.firstname}} {{profile.lastname}}</h4>
                             </div>
                             <div class="modal-body">
                                 <img class="large-avatar" ng-src="{{profile.avatar}}"
                                      title="{{profile.firstname}} {{profile.lastname}}">
                             </div>
                             <div class="modal-footer">
+                                <button type="filepicker" ng-click="browserAvatar()" class="btn btn-primary" ><i class="fa fa-folder-open"></i> Browser</button>
                                 <button type="button" class="btn btn-default" ng-click="visited = false">Close</button>
                             </div>
                         </div>
@@ -656,10 +657,11 @@
 
 <script src="./js/jquery-1.12.3.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
+<script src="https://api.filestackapi.com/filestack.js"></script>
 <script src="./js/angular-sanitize.js"></script>
 <script src="./js/app.js"></script>
 </body>

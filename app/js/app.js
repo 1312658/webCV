@@ -4,8 +4,25 @@ var ref = new Firebase('https://1312678-linkedin.firebaseio.com');
 var userRef = ref.child("Users");
 var isNewUser = true;
 
-app.controller("profileCtrl", ["$scope", "$firebaseObject",
-    function ($scope, $firebaseObject) {
+app.controller("profileCtrl", ["$scope", "$firebaseObject", "$location"
+    function ($scope, $firebaseObject, $location) {
+        filepicker.setKey("AVBZsMJmbS06gwrsJDpZJz");
+
+        $scope.browserAvatar = function() {
+            filepicker.pick(
+                {
+                    cropRatio: 1/1,
+                    mimetype: 'image/*',
+                    services: ['CONVERT', 'COMPUTER', 'WEBCAM', 'FACEBOOK', 'IMAGE_SEARCH', 'URL'],
+                    conversions: ['crop', 'rotate', 'filter']
+                },
+                function (img) {
+                    $scope.profile.avatar = img.url;
+                    $scope.$digest();
+                }
+            )
+        }
+
         ref.onAuth(function (authData) {
             if (!authData) {
                 window.location = "login.html";
@@ -29,6 +46,7 @@ app.controller("profileCtrl", ["$scope", "$firebaseObject",
                         userRef.child(authData.uid).child("profile").set({
                             "firstname": $scope.displayName,
                             "avatar": "./picture/avatar.png"
+							"webAddress": $location.absUrl()
                         });
                     }
                 });
@@ -42,11 +60,6 @@ app.controller("profileCtrl", ["$scope", "$firebaseObject",
         }
 
         $scope.visited = false;
-<<<<<<< HEAD
-        
-        
-        
-=======
 
         $scope.save = function () {
             $scope.profile = $scope.subProfile;
@@ -154,6 +167,5 @@ app.controller("profileCtrl", ["$scope", "$firebaseObject",
             $scope.newProject = null;
         };
 
->>>>>>> 028bae45fa1abbfe527277b79fb8eef0e3b78727
     }
 ]);
