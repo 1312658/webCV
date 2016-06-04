@@ -35,5 +35,8 @@ app.controller("profile", ["$scope", "$firebaseObject",
         }
 
         $scope.visited = false;
+        
+        
+        
     }
 ]);
