@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/mycss.css">
 </head>
 
-<body ng-app="LinkedInApp" ng-class="{'modal-open': visited}">
+<body  ng-app="LinkedInApp" ng-controller="newFeed">
 
 <nav class="navbar navbar-inverse" id="navbar">
     <div class="container">
@@ -50,32 +50,25 @@
     </div>
 </nav>
 
-    <div class="wrapper-home">
+<div class="wrapper-home">
         <div class="container-slide">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="0" ></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                     <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
                 </ol>
                 <!-- Wrapper for slides -->
+
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="picture/1.jpg" alt="Chania" width="460" height="345">
+                        <img ng-src="{{backgroundActive.Background}}" alt="Chania" width="460" height="345">
                     </div>
-
-                    <div class="item">
-                        <img src="picture/2.jpg" alt="Chania" width="460" height="345">
-                    </div>
-
-                    <div class="item">
-                        <img src="picture/3.jpg" alt="Flower" width="460" height="345">
-                    </div>
-
-                    <div class="item">
-                        <img src="picture/4.jpg" alt="Flower" width="460" height="345">
+                    <div class="item" ng-repeat="t in arrayBackground()">
+                        <img ng-src="{{t.Background}}" alt="Chania" width="460" height="345">
                     </div>
                 </div>
 
@@ -108,108 +101,36 @@
 
         <div class="container-newfeeds" >
             <br/>
-            <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
             <h1>C#</h1>
             <h4>Get job for C# now!!!</h4>
             <div class="carosel">
                 <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5" href=""></button>
                 <div class="carosel-inner">
+                    <div class="carosel-item" ng-repeat="new in arraySkills('C#')">
+                         <div class="container-newfeed" >
+                            <img ng-src={{new.Poster}}
+                                                data-popover="true" data-html=true
+                                                data-content="  <img src='{{new.Poster}}'style='width:375px;height: 250px;''/>
+                                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>
+                                                                ">
 
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200" >
                             <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
+                                <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                                <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                                <p > <b>Location:</b> {{new.Location}}</p>
+                                <button type="button" class="btn btn-primary" style="float: right" ng-click = "clickJoin()">Join Now!</button>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/1.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/2.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/3.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <button class="carosel-control carosel-control-right fa fa-chevron-right" href="" style="opacity: 0.5"></button>
             </div>
-            <a href="#">More...</a>
+                <a href="#">More...</a>
             </div>
 
         <div class="container-newfeeds" >
@@ -219,98 +140,27 @@
             <div class="carosel">
                 <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5" href=""></button>
                 <div class="carosel-inner">
+                    <div class="carosel-item" ng-repeat="new in arraySkills('C/C++')">
+                        <div class="container-newfeed" data-popover="true" data-html=true
+                             data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>
+                                                ">
+                            <img ng-src={{new.Poster}} >
 
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200" >
                             <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
+                                <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                                <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                                <p > <b>Location:</b> {{new.Location}}</p>
+                                <button type="button" class="btn btn-primary" style="float: right">Join Now!</button>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/1.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
                         </div>
                     </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/2.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/3.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <button class="carosel-control carosel-control-right fa fa-chevron-right" href="" style="opacity: 0.5"></button>
             </div>
@@ -324,96 +174,24 @@
             <div class="carosel">
                 <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5" href=""></button>
                 <div class="carosel-inner">
+                    <div class="carosel-item" ng-repeat="new in arraySkills('Java/Android')">
+                        <div class="container-newfeed" data-popover="true" data-html=true
+                             data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>
+                                                ">
+                            <img ng-src={{new.Poster}} >
 
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200" >
                             <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
+                                <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                                <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                                <p > <b>Location:</b> {{new.Location}}</p>
+                                <button type="button" class="btn btn-primary" style="float: right">Join Now!</button>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/1.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/2.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/3.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -429,98 +207,26 @@
             <div class="carosel">
                 <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5" href=""></button>
                 <div class="carosel-inner">
+                    <div class="carosel-item" ng-repeat="new in arraySkills('HTML/CSS')">
+                        <div class="container-newfeed" data-popover="true" data-html=true
+                             data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>
+                                                ">
+                            <img ng-src={{new.Poster}} >
 
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200" >
                             <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
+                                <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                                <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                                <p > <b>Location:</b> {{new.Location}}</p>
+                                <button type="button" class="btn btn-primary" style="float: right">Join Now!</button>
                             </div>
                         </div>
+                    </div>
 
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/1.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/2.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/3.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carosel-item">
-                        <div class="container-newfeed">
-                            <img src="picture/4.jpg" width="220" height="200">
-                            <div class="container-newfeed-Informations">
-                                <p style="font-size:medium">Thông tin tuyển dụng!</p>
-                                <button type="button" class="btn btn-primary" >Join Now!</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <button class="carosel-control carosel-control-right fa fa-chevron-right" href="" style="opacity: 0.5"></button>
             </div>
@@ -530,11 +236,23 @@
 
 <script src="./js/jquery-1.12.3.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
 <script src="./js/angular-sanitize.js"></script>
+<script src="./js/home.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBRz1w4wl2ECp6SMjfIQlWVCj16OwedOG0",
+        authDomain: "1312678-linkedin.firebaseapp.com",
+        databaseURL: "https://1312678-linkedin.firebaseio.com",
+        storageBucket: "project-7155893810831756898.appspot.com",
+    };
+    firebase.initializeApp(config);
+</script>
 
 <script type="text/javascript">
     $('.carosel-control-right').click(function() {
@@ -545,6 +263,9 @@
         $(this).blur();
         $(this).parent().find('.carosel-item').last().insertBefore($(this).parent().find('.carosel-item').first());
     });
+
+    $('body').popover({ selector: '[data-popover]', trigger: 'click hover', placement: 'auto', delay: {show: 10, hide: 100}});
+
 </script>
 </body>
 </html>

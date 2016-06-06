@@ -3,15 +3,15 @@ var app = angular.module("LinkedInApp", ["firebase"]);
 app.controller("login", function ($scope, $firebase, $element) {
     var ref = new Firebase('https://1312678-linkedin.firebaseio.com');
 
-    $scope.createAccount = function () {
-        if ($scope.signUpForm.$invalid)
+    $scope.createAccount = function() {
+        if($scope.signUpForm.$invalid)
             return;
         $scope.isSignUpProcess = true;
-
+        
         ref.createUser({
-            email: $scope.newEmail,
-            password: $scope.newPassword
-        }, function (error, userData) {
+            email    : $scope.newEmail,
+            password : $scope.newPassword
+        }, function(error, userData) {
             if (error) {
                 getError(error);
                 $scope.isSignUpProcess = false;
@@ -26,15 +26,15 @@ app.controller("login", function ($scope, $firebase, $element) {
         });
     };
 
-    $scope.login = function () {
-        if ($scope.form.$invalid)
+    $scope.login = function(){
+        if($scope.form.$invalid)
             return;
         $scope.isLoginProcess = true;
 
         ref.authWithPassword({
-            email: $scope.email,
-            password: $scope.password
-        }, function (error, authData) {
+            email    : $scope.email,
+            password : $scope.password
+        }, function(error, authData) {
             if (error) {
                 getError(error);
                 $scope.isLoginProcess = false;
@@ -47,8 +47,8 @@ app.controller("login", function ($scope, $firebase, $element) {
         });
     };
 
-    $scope.loginFacebook = function () {
-        ref.authWithOAuthPopup("facebook", function (error) {
+    $scope.loginFacebook = function (){
+        ref.authWithOAuthPopup("facebook", function(error) {
             if (error) {
                 getError(error);
             } else {
@@ -61,8 +61,8 @@ app.controller("login", function ($scope, $firebase, $element) {
         });
     };
 
-    $scope.loginGooglePlus = function () {
-        ref.authWithOAuthPopup("google", function (error) {
+    $scope.loginGooglePlus = function (){
+        ref.authWithOAuthPopup("google", function(error) {
             if (error) {
                 getError(error);
             } else {
@@ -75,8 +75,9 @@ app.controller("login", function ($scope, $firebase, $element) {
         });
     };
 
-    function getError(error) {
-        switch (error.code) {
+    function getError(error){
+        switch (error.code)
+        {
             case "INVALID_EMAIL":
                 $scope.Error = "Email is invalid, please try again!";
                 break;
