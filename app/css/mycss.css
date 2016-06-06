@@ -35,6 +35,7 @@ body {
     color: white;
 }
 
+<<<<<<< HEAD
 /*Home */
 .item{
     width: 100%;
@@ -177,6 +178,8 @@ body {
 /* new feed*/
 /* end home */
 
+=======
+>>>>>>> d499bfa6815a4797bd34d59a27293dc36b07d8a4
 .account-name {
     color: white;
     margin-right: 50px;
@@ -197,6 +200,22 @@ body {
 #avatar {
     width: 240px;
     height: 240px;
+    cursor: zoom-in;
+}
+
+.btn-file {
+    position: relative;
+}
+
+.btnBrowsers {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+<<<<<<< HEAD
+=======
+    opacity: 0;
 }
 
 .fluence-icon {
@@ -289,6 +308,7 @@ body {
 
 #dropdown {
     position: absolute;
+>>>>>>> d499bfa6815a4797bd34d59a27293dc36b07d8a4
 }
 
 .followers {
@@ -348,7 +368,10 @@ body {
 }
 
 #background {
+<<<<<<< HEAD
     box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+=======
+>>>>>>> d499bfa6815a4797bd34d59a27293dc36b07d8a4
     margin-top: 20px;
     border-radius: 0px;
 }
