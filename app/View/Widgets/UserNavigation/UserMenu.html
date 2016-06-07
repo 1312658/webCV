@@ -1,0 +1,18 @@
+<style>
+    .btn-user-info {
+        background: transparent;
+        border: transparent;
+        color: white;
+    }
+</style>
+
+<div class="btn-group">
+    <button type="button" class="btn  dropdown-toggle btn-user-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Hello, {{displayName}} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="#/profile">Profile</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="" ng-click="logout()">Logout</a></li>
+    </ul>
+</div>

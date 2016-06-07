@@ -1,0 +1,25 @@
+.navbar-search-home [type= text] {
+    width:400px;
+    margin:0 auto;
+    list-style:none;
+}
+#navbar {
+    margin-bottom: 0px;
+    width: 100%;
+    background-color: #00897B;
+    border-color: #00897B;
+    border-radius: 0%;
+    box-shadow: 0px 3px 10px #616161;
+    position: fixed;
+    z-index: 10;
+}
+
+#navbar-logo a {
+    color: white;
+}
+
+.nav-user div {
+    color: white;
+    margin-right: 50px;
+    margin-top: 8px;
+}

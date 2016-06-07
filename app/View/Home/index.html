@@ -1,0 +1,194 @@
+<link rel="stylesheet" href="./View/Home/app.css">
+<div class="wrapper-home">
+    <div class="container-slide">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" ></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img ng-src="{{backgroundActive.Background}}" alt="Chania" width="460" height="345">
+                </div>
+                <div class="item" ng-repeat="t in arrayBackground()">
+                    <img ng-src="{{t.Background}}" alt="Chania" width="460" height="345">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+
+            <a class="left carousel-control" href="javascript:void(0)" data-target="#myCarousel" role="button" data-slide="prev">
+                <br/><br/><br/><br/>
+                <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="javascript:void(0)" data-target="#myCarousel" role="button" data-slide="next">
+                <br/><br/><br/><br/>
+                <span class="fa fa-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="CVcontainer">
+        <div id="topcard-home" class="panel panel-default">
+            <div class="container-post-status">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <img src="{{avatar}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-newfeeds" >
+        <br/>
+        <h1>C#</h1>
+        <h4>Get job for C# now!!!</h4>
+        <div class="carosel">
+            <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5"></button>
+            <div class="carosel-inner">
+                <div class="carosel-item" ng-repeat="new in arraySkills('C#')">
+                    <div class="container-newfeed" >
+                        <img ng-src={{new.Poster}}
+                             data-popover="true" data-html=true
+                             data-content="<img src='{{new.Poster}}'style='width:375px;height: 250px;''/>
+                                            <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                            <p><b>Skills: </b>{{new.Skills}}</p>
+                                            <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                            <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                            <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>">
+
+                        <div class="container-newfeed-Informations">
+                            <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                            <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                            <p > <b>Location:</b> {{new.Location}}</p>
+                            <button type="button" class="btn btn-primary" style="float: right" ng-click="clickJoin()">Join Now!</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button class="carosel-control carosel-control-right fa fa-chevron-right" style="opacity: 0.5"></button>
+        </div>
+        <a href="#/">More...</a>
+    </div>
+
+    <div class="container-newfeeds" >
+        <br/>
+        <h1>C/C++</h1>
+        <h4>Get job for C/C++ now!!!</h4>
+        <div class="carosel">
+            <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5"></button>
+            <div class="carosel-inner">
+                <div class="carosel-item" ng-repeat="new in arraySkills('C/C++')">
+                    <div class="container-newfeed" data-popover="true" data-html=true
+                         data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>">
+                        <img ng-src={{new.Poster}} >
+
+                        <div class="container-newfeed-Informations">
+                            <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                            <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                            <p > <b>Location:</b> {{new.Location}}</p>
+                            <button type="button" class="btn btn-primary" ng-click="clickJoin()" style="float: right">Join Now!</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <button class="carosel-control carosel-control-right fa fa-chevron-right" style="opacity: 0.5"></button>
+        </div>
+        <a href="#/">More...</a>
+    </div>
+
+    <div class="container-newfeeds" >
+        <br/>
+        <h1>Java/Android</h1>
+        <h4>Get job for Java/Android now!!!</h4>
+        <div class="carosel">
+            <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5" href=""></button>
+            <div class="carosel-inner">
+                <div class="carosel-item" ng-repeat="new in arraySkills('Java/Android')">
+                    <div class="container-newfeed" data-popover="true" data-html=true
+                         data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>">
+                        <img ng-src={{new.Poster}} >
+
+                        <div class="container-newfeed-Informations">
+                            <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                            <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                            <p > <b>Location:</b> {{new.Location}}</p>
+                            <button type="button" class="btn btn-primary" ng-click="clickJoin()" style="float: right">Join Now!</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button class="carosel-control carosel-control-right fa fa-chevron-right" style="opacity: 0.5"></button>
+        </div>
+        <a href="#">More...</a>
+    </div>
+
+    <div class="container-newfeeds" >
+        <br/>
+        <h1>HTML/CSS</h1>
+        <h4>Get job for HTML/CSS now!!!</h4>
+        <div class="carosel">
+            <button class="carosel-control carosel-control-left fa fa-chevron-left" style="opacity: 0.5"></button>
+            <div class="carosel-inner">
+                <div class="carosel-item" ng-repeat="new in arraySkills('HTML/CSS')">
+                    <div class="container-newfeed" data-popover="true" data-html=true
+                         data-content="    <img src='{{new.Poster}}'/>
+                                                <h4><b>Company: </b>{{new.CompanyName}}</h4>
+                                                <p><b>Skills: </b>{{new.Skills}}</p>
+                                                <p><b>Count: </b>{{new.NumberOfPerson}}</p>
+                                                <p><b>Deadline: </b>{{new.DayPost}} - {{new.Deadline}}</p>
+                                                <p><b>Contact: </b>{{new.Contact}} -  {{new.Location}}</p>">
+                        <img ng-src={{new.Poster}} >
+
+                        <div class="container-newfeed-Informations">
+                            <p > {{new.Deadline}} - {{new.DayPost}}</p>
+                            <p> <b>Number of Person:</b> {{new.NumberOfPerson}}</p>
+                            <p > <b>Location:</b> {{new.Location}}</p>
+                            <button type="button" class="btn btn-primary" ng-click="clickJoin()" style="float: right">Join Now!</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carosel-control carosel-control-right fa fa-chevron-right" style="opacity: 0.5"></button>
+        </div>
+        <a href="#/">More...</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.carosel-control-right').click(function() {
+        $(this).blur();
+        $(this).parent().find('.carosel-item').first().insertAfter($(this).parent().find('.carosel-item').last());
+    });
+    $('.carosel-control-left').click(function() {
+        $(this).blur();
+        $(this).parent().find('.carosel-item').last().insertBefore($(this).parent().find('.carosel-item').first());
+    });
+
+    $('body').popover({ selector: '[data-popover]', trigger: 'click hover', placement: 'auto', delay: {show: 10, hide: 100}});
+
+</script>

@@ -1,9 +1,0 @@
-{
-  "firebase": "1312678-linkedin",
-  "public": "public",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ]
-}
